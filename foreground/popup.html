@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/popup.css">
+</head>
+
+<div class="container">
+    <h5>Mastoshare For Chrome(lite)</h5>
+    <div id="error"></div>
+    <div class="row">
+        <div class="col-xs-8">
+            <div class="form-group">
+                <input type="text" class="form-control input-sm" id="addlist" placeholder="mstdn.jp" required>
+            </div>
+        </div>
+        <div class="col-xs-4">
+            <button id="addlistbtn" class="btn btn-primary">追加</button>
+        </div>
+    </div>
+    <div class="form-group">
+        <select class="form-control" id="instance" name="instance" required>
+        </select>
+    </div>
+    <div class="form-group">
+        <textarea id="contents" class="form-control" name="num" placeholder="Toot内容" rows="5" required></textarea>
+    </div>
+    <button id="getsite" class="btn btn-info">サイトデータ取得</button>
+    <button id="Toot" class="btn btn-primary">Toot</button>
+    <button id="del" class="btn btn-danger">リスト全削除</button>
+</div>
+<script src="js/main.js"></script>
+<script src="js/getpage.js"></script>
+
+</body>
+
+</html>
