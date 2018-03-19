@@ -12,4 +12,9 @@ body{
   background-image: url("../img/logo-t.png");
   background-repeat: no-repeat; /* 繰り返し表示オフ */
   padding: 5px 0px 0px 40px;
+  margin-top: 10px;
+}
+
+.row{
+  margin-left: 0px;
 }
