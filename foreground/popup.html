@@ -4,35 +4,39 @@
 <head>
     <meta charset="UTF-8">
     <title>Mastoshare lite</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-        crossorigin="anonymous">
+    <link rel="stylesheet" href="css/bootstrap.dark.min.css">
     <link rel="stylesheet" type="text/css" href="css/popup.css">
 </head>
-
 <div class="container">
-    <h4 class="top-h">Mastoshare lite</h4>
-    <p>使い方: 準備中</p>
+    <img src="img/mastoshare.png" class="img-fluid">
     <div id="error"></div>
-    <div class="row">
-        <div class="col-xs-8">
-            <div class="form-group">
-                <input type="text" class="form-control input-sm" id="addlist" placeholder="mstdn.jp" required>
+    <div id="info"></div>
+    <div class="card">
+        <div class="card-body">
+            <h4>リストへの追加</h4>
+            <div class="row">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">https://</span>
+                    </div>
+                    <input type="text" class="form-control" id="addlist" placeholder="mstdn.jp">
+                    <button id="addlistbtn" class="btn btn-primary">追加</button>
+                </div>
             </div>
         </div>
-        <div class="col-xs-4">
-            <button id="addlistbtn" class="btn btn-primary">追加</button>
-        </div>
     </div>
+    <h4>インスタンスリスト</h4>
     <div class="form-group">
-        <select class="form-control" id="instance" name="instance" required>
+        <select class="form-control" id="instance" name="instance" size="5" required>
         </select>
     </div>
     <div class="form-group">
-        <textarea id="contents" class="form-control" name="num" placeholder="Toot内容" rows="5" required></textarea>
+        <textarea id="contents" class="form-control" name="num" placeholder="Toot内容" rows="3" required></textarea>
     </div>
     <button id="getsite" class="btn btn-info">サイトデータ取得</button>
     <button id="Toot" class="btn btn-primary">Toot</button>
-    <button id="del" class="btn btn-danger">リスト全削除</button>
+    <button id="del" class="btn btn-danger mt-2">リスト全削除</button>
+
 </div>
 <script src="js/main.js"></script>
 <script src="js/getpage.js"></script>

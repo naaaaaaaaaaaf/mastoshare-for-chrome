@@ -2,19 +2,15 @@ body{
   min-width: 300px;
   margin-bottom: 30px;
   font-family: Segoe UI, Arial, sans-serif;
-  font-size: 13px;
+  font-size: 1rem;
+  background-color: #282c37;
 }
 .error{
-  font-size: 20px;
+  font-size: 1rem;
 }
-
-.top-h{
-  background-image: url("../img/logo-t.png");
-  background-repeat: no-repeat; /* 繰り返し表示オフ */
-  padding: 5px 0px 0px 40px;
-  margin-top: 10px;
+.card{
+  background-color: #3D4554;
 }
-
-.row{
-  margin-left: 0px;
+.card-body{
+  padding: 1rem;
 }
