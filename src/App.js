@@ -7,7 +7,7 @@ function App() {
     return (
         <Router>
             <Routes>
-                <Route path="/" element={<ShareComponent />} />
+                <Route path="/index.html" element={<ShareComponent />} />
             </Routes>
         </Router>
     );
