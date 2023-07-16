@@ -31,20 +31,26 @@ function ShareComponent() {
 
     useEffect(() => {
         // ローカルストレージからMastodonインスタンスのURLを取得
-        const savedInstances = JSON.parse(
-            localStorage.getItem('instancesList'),
-        );
-        if (savedInstances) setInstancesList(savedInstances);
         const savedPreferredInstance =
             localStorage.getItem('preferredInstance');
         if (savedPreferredInstance) {
             setMastodonInstance(savedPreferredInstance);
-        }else if(instancesList.length > 0){
-            setMastodonInstance(instancesList[0])
+        } else if (instancesList.length > 0) {
+            setMastodonInstance(instancesList[0]);
         }
+    }, [location, instancesList]);
+
+    useEffect(() => {
+        const savedInstances = JSON.parse(
+            localStorage.getItem('instancesList'),
+        );
         if (!savedInstances || savedInstances.length === 0)
             setShowAddForm(true);
-    }, [location, instancesList]);
+    }, []);
+
+    useEffect(() => {
+        localStorage.setItem('instancesList', JSON.stringify(instancesList));
+    }, [instancesList]);
 
     const handleAddInstance = () => {
         handleAddNewInstance(
@@ -54,22 +60,19 @@ function ShareComponent() {
             setAddInstanceError,
             setSuccessMessage,
         );
-        // 新しく追加したインスタンスを選択する
         setMastodonInstance(newMastodonInstance);
-        // フォームの入力フィールドをクリアする
         setNewMastodonInstance('');
-        // MastodonインスタンスのURLをローカルストレージに保存
-        localStorage.setItem('instancesList', JSON.stringify(instancesList));
+        //localStorage.setItem('instancesList', JSON.stringify(instancesList));
+        localStorage.setItem('preferredInstance', newMastodonInstance);
     };
-
-    useEffect(() => {
-        localStorage.setItem('instancesList', JSON.stringify(instancesList));
-    }, [instancesList]);
 
     const handleShare = () => {
         // 指定したURLにジャンプ
         const shareText = encodeURIComponent(combinedValue);
-        window.open(`https://${mastodonInstance}/share?text=${shareText}`, '_blank');
+        window.open(
+            `https://${mastodonInstance}/share?text=${shareText}`,
+            '_blank',
+        );
     };
 
     const handleButtonClick = () => {
@@ -77,7 +80,7 @@ function ShareComponent() {
             const activeTab = tabs[0];
             const title = activeTab.title;
             const url = activeTab.url;
-            setCombinedValue(`Title: ${title}\nURL: ${url}`);
+            setCombinedValue(`${title}\n${url}`);
             console.log(combinedValue);
         });
     };
@@ -109,7 +112,7 @@ function ShareComponent() {
                     onClick={handleCopyToClipboard}
                     className="mt-2 mb-2 py-2 px-4 bg-orange-500 text-white rounded"
                 >
-                    クリップ ボードにコピー
+                    クリップボードにコピー
                 </button>
                 {instancesList.length > 0 ? (
                     <>
@@ -164,7 +167,7 @@ function ShareComponent() {
                                 }
                             />
                             <button
-                                className="p-2 bg-blue-500 text-white rounded-md"
+                                className="text-base p-2 bg-blue-500 text-white rounded-md"
                                 onClick={handleAddInstance}
                             >
                                 追加
@@ -192,7 +195,7 @@ function ShareComponent() {
                 </Link>
                 <div className="flex justify-center">
                     <a
-                        href="https://github.com/naaaaaaaaaaaf/mastoshare"
+                        href="https://github.com/naaaaaaaaaaaf/mastoshare-for-chrome"
                         target="_blank"
                         rel="noreferrer"
                         className="mt-2 text-gray-500 hover:underline flex items-center"
