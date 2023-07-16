@@ -1,12 +1,12 @@
 {
   "name": "Mastoshare",
-  "description": "Mastodon Share Extension",
+  "description": "Mastoshareは、Masotodon向けの共有をサポートする拡張機能です。",
   "version": "2.0",
   "manifest_version": 3,
   "icons": {
-    "16": "logo192.png",
-    "48": "logo192.png",
-    "128": "logo192.png"
+    "16": "mastoshare-16.png",
+    "48": "mastoshare-48.png",
+    "128": "mastoshare-128.png"
   },
   "action": {
     "default_popup": "index.html"
