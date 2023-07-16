@@ -201,7 +201,7 @@ function ShareComponent() {
                         className="mt-2 text-gray-500 hover:underline flex items-center"
                     >
                         <BsGithub className="mr-1" />
-                        Mastoshare Chrome Extension v{version}
+                        Mastoshare Firefox Extension v{version}
                     </a>
                 </div>
             </div>
